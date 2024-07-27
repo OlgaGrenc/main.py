@@ -1,8 +1,8 @@
 name = "Name: Olga"
 print(name)
 age = 30
-new_age = age + 1
 print("Age:", age)
-print("New Age:", new_age)
-is_student = new_age != age
+age = age + 1
+print("New Age:", age)
+is_student = age != 30
 print("Is Student:", is_student)

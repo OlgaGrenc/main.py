@@ -5,7 +5,7 @@
 # Проверка на отправку самому себе.
 # Проверка на отправителя по умолчанию.
 def send_email(message, recipient, *, sender="university.help@gmail.com"):
-    if "@" not in recipient and "@" not in sender\
+    if "@" not in recipient or "@" not in sender\
             or not recipient.endswith((".com", '.ru', '.net')) or not sender.endswith((".com", '.ru', '.net')):
         print(f"Невозможно отправить письмо с адреса {sender} на адрес {recipient}")
     elif sender == recipient:

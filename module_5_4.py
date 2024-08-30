@@ -1,43 +1,22 @@
-"""В классе House создайте атрибут houses_history = [],
-который будет хранить названия созданных объектов.
-
-Правильней вписывать здание в историю сразу при создании объекта,
-тем более можно удобно обращаться к атрибутам класса используя ссылку на сам класс - cls.
-Дополните метод __new__ так, чтобы:
-Название объекта добавлялось в список cls.houses_history.
-Название строения можно взять из args по индексу.
-
-Также переопределите метод __del__(self) в котором будет выводиться строка:
-"<название> снесён, но он останется в истории"
-
-Создайте несколько объектов класса House и проверьте работу методов __del__ и __new__,
-а также значение атрибута houses_history.
-"""
+"""Домашняя работа по уроку "Различие атрибутов класса и экземпляра."
+Цель: понять разницу между атрибутами объекта и класса, дополнив уже существующий класс.
+Применить метод __new__."""
 
 
 class House:
     houses_history = []
 
-    def __new__(cls, *args, **kwargs):
-        cls.houses_history.append(args)
-        for i in cls.houses_history:
-            print(i[:])
+    def __new__(cls, name, number):
+        houses_history = []
+        cls.houses_history.append(name)
         return object.__new__(cls)
-#
-    ''' def __new__(cls, *args, **kwargs):
-        __arg = None
-        cls.houses_history.append(args)
-        for i in cls.houses_history:
-            print(i[:])
-        if cls.__arg is None:
-            cls.__arg = super().__new__(cls)
-        return cls.__arg'''
 
-    def __init__(self, *args, **kwargs):
-        self.args = args
+    def __init__(self, name, number):
+        self.name = name
+        self.number = number
 
     def __del__(self):
-        return f'{self.args} снесён, но он останется в истории'
+        print(f'{self.name} снесён, но он останется в истории')
 
 
 h1 = House('ЖК Эльбрус', 10)
@@ -52,13 +31,3 @@ del h2
 del h3
 
 print(House.houses_history)
-""" Тебуемый
-Вывод на консоль:
-['ЖК Эльбрус']
-['ЖК Эльбрус', 'ЖК Акация']
-['ЖК Эльбрус', 'ЖК Акация', 'ЖК Матрёшки']
-ЖК Акация снесён, но он останется в истории
-ЖК Матрёшки снесён, но он останется в истории
-['ЖК Эльбрус', 'ЖК Акация', 'ЖК Матрёшки']
-ЖК Эльбрус снесён, но он останется в истории
-"""

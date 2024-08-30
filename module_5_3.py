@@ -17,19 +17,24 @@ class House:
 #  методы __lt__, __le__, __gt__, __ge__, __ne__
 
     def __lt__(self, other):
-        return self.numbers_of_floors < other.numbers_of_floors
+        if isinstance(other, int) or isinstance(other, House):
+            return self.numbers_of_floors < other.numbers_of_floors
 
     def __le__(self, other):
-        return self.numbers_of_floors <= other.numbers_of_floors
+        if isinstance(other, int) or isinstance(other, House):
+            return self.numbers_of_floors <= other.numbers_of_floors
 
     def __gt__(self, other):
-        return self.numbers_of_floors > other.numbers_of_floors
+        if isinstance(other, int) or isinstance(other, House):
+            return self.numbers_of_floors > other.numbers_of_floors
 
     def __ge__(self, other):
-        return self.numbers_of_floors >= other.numbers_of_floors
+        if isinstance(other, int) or isinstance(other, House):
+            return self.numbers_of_floors >= other.numbers_of_floors
 
     def __ne__(self, other):
-        return self.numbers_of_floors != other.numbers_of_floors
+        if isinstance(other, int) or isinstance(other, House):
+            return self.numbers_of_floors != other.numbers_of_floors
 # 3 метод __add__
 
     def __add__(self, value):

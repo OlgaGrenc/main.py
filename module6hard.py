@@ -1,3 +1,6 @@
+import math
+
+
 class Figure:
     sides_count = 0
 
@@ -5,7 +8,7 @@ class Figure:
         if len(sides) != self.sides_count:
             sides = [1 for _ in range(self.sides_count)]
         self.__sides = list(sides)
-        self.__color = color
+        self.__color = list(color)
         self.filled = False
 
     def get_color(self):
@@ -13,7 +16,7 @@ class Figure:
 
     def __is_valid_color(self, r, b, g):
         if isinstance(r, int) and isinstance(b, int) and isinstance(g, int):
-            if r in range(0, 255) and b in range(0, 255) and g in range(0, 255):
+            if r in range(0, 256) and b in range(0, 256) and g in range(0, 256):
                 return True
         return False
 
@@ -44,10 +47,10 @@ class Circle(Figure):
 
     def __init__(self, color, *sides):
         super().__init__(color, *sides)
-        self.__radius = len(self) / (2*3.14)
+        self.__radius = len(self) / (2 * math.pi)
 
     def get_square(self):
-        self.__radius = 3.14*(self.__radius**2)   # площадь круга pr**2
+        self.__radius = math.pi * (self.__radius ** 2)   # площадь круга pr**2
         return self
 
 

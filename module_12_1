@@ -24,7 +24,7 @@ class Runner:
 
 
 # Класс для тестирования
-class RunnerTest(unittest.TestCase):
+class RunnerTest(TestCase):
 
 
     def test_walk(self):

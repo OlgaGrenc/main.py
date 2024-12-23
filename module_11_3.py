@@ -13,7 +13,7 @@ def introspection_info(obj):
         - Модуль, к которому объект принадлежит.
         - Другие интересные свойства объекта, учитывая его тип (по желанию).
     Примерный вывод: {'type': 'int', 'attributes': [...], 'methods': ['__abs__', '__add__', ...],
-     'module': 'builtins', 'other': '...'}."""
+     'module':  '__main__'}."""
     info_attr = []
     methods_ = []
     for i in dir(obj):
